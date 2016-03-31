@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<title>study1</title>
+		<link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css"/>
+		<script src="ionic/js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ionic/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+	</head>
+	<style type="text/css">
+		.ng-hide {
+  height: 0;
+}
+	</style>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div ng-init="arr=[
+				{name:'Jani',country:'Norway'},
+				{name:'Hege',country:'Sweden'},
+				{name:'Kai',country:'Denmark'}]">
+			<p ng-click="go()" 
+ >111</p>
+<p ng-repeat="x in arr" ng-hide="myVar">{{x.country}}</p>
+		</div>
+		<script type="text/javascript">
+			var app = angular.module('myApp',['ionic', 'ngAnimate']);
+			app.controller('myCtrl', function($scope) {
+				$scope.go = function () {
+					$scope.myVar = !$scope.myVar;
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<title>study1</title>
+		<link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css"/>
+		<script src="ionic/js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ionic/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div>
+			
+		</div>
+		<script type="text/javascript">
+			var app = angular.module('myApp',['ionic']);
+			app.controller('myCtrl',['$scope', function($scope) {
+				$scope.b = {age:10};
+				$scope.a = {name:'张三'};
+				
+				//继承					//谁要继承谁 ，b继承a		
+				$scope.c = angular.extend($scope.b,$scope.a);
+				console.log($scope.b)
+				
+				
+				//JSON
+				//toJson
+				var json = {'name':'hello','age':'20'};
+				console.log(json);
+				$scope.json = angular.toJson(json);
+				console.log('toJson:' + $scope.json);
+				//格式化JSON
+				$scope.json = angular.toJson(json,true);
+				console.log('格式化 :' + $scope.json);
+				
+				//fromJson
+				var json = {'name':'hello','age':'20'};
+				$scope.json = angular.fromJson(json);
+				console.log('fromJson:' + $scope.json);
+				
+				
+				//forEach
+				var json = {'name':'hello','age':'20','sex':'男'};
+				angular.forEach(json,function(val,key) {
+					console.log(key,val);
+				})
+				
+				var results = [];
+				angular.forEach(json,function(val,key) {
+					console.log(key,val);
+					this.push(val + key);
+				},results);
+				console.log(results);
+				
+				
+				//绑定对象
+				var self = {'name':'dd'}
+				var f = angular.bind(self, function(age) {
+					$scope.info = this.name + age;
+					console.log($scope.info);
+				},10);
+				f();
+			}])
+		</script>
+	</body>
+</html>
