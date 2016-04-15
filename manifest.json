@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H5201EC1A",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "studyIonic",/*应用名称，程序桌面图标名称*/
@@ -199,5 +199,76 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"ionic/css/ionic.min.css",
+					"ionic/js/jquery.min.js",
+					"ionic/js/ionic.bundle.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"ionic/scss/_transitions.scss",
+				"ionic/scss/ionicons/_ionicons-icons.scss",
+				"ionic/js/ionic.js",
+				"ionic/scss/_menu.scss",
+				"ionic/scss/_button.scss",
+				"ionic/scss/_slide-box.scss",
+				"ionic/scss/_modal.scss",
+				"ionic/scss/_progress.scss",
+				"ionic/scss/_variables.scss",
+				"ionic/scss/_backdrop.scss",
+				"ionic/scss/ionicons/ionicons.scss",
+				"ionic/scss/_button-bar.scss",
+				"ionic/js/ionic-angular.min.js",
+				"ionic/scss/ionic.scss",
+				"ionic/bower.json",
+				"ionic/scss/_badge.scss",
+				"ionic/scss/_slides.scss",
+				"ionic/fonts/ionicons.eot",
+				"ionic/scss/_radio.scss",
+				"ionic/scss/_tabs.scss",
+				"ionic/fonts/ionicons.woff",
+				"ionic/scss/_range.scss",
+				"ionic/scss/_spinner.scss",
+				"ionic/scss/_items.scss",
+				"ionic/fonts/ionicons.svg",
+				"ionic/scss/_loading.scss",
+				"ionic/scss/_scaffolding.scss",
+				"ionic/scss/ionicons/_ionicons-variables.scss",
+				"ionic/scss/_reset.scss",
+				"ionic/js/ionic.bundle.js",
+				"ionic/scss/_select.scss",
+				"ionic/css/ionic.css",
+				"ionic/scss/_platform.scss",
+				"ionic/scss/_toggle.scss",
+				"ionic/scss/_bar.scss",
+				"ionic/README.md",
+				"ionic/scss/_action-sheet.scss",
+				"ionic/scss/_type.scss",
+				"ionic/scss/_grid.scss",
+				"ionic/scss/_util.scss",
+				"check.html",
+				"ionic/scss/_list.scss",
+				"ionic/js/ionic.min.js",
+				"ionic/scss/tsconfig.json",
+				"ionic/scss/_checkbox.scss",
+				"ionic/scss/_animations.scss",
+				"ionic/scss/_mixins.scss",
+				"ionic/scss/ionicons/_ionicons-font.scss",
+				"ionic/scss/_popup.scss",
+				"ionic/scss/_form.scss",
+				"ionic/scss/_refresher.scss",
+				"ionic/js/ionic-angular.js",
+				"ionic/scss/_popover.scss",
+				"ionic/fonts/ionicons.ttf"
+			]
+		}
+	}
 }

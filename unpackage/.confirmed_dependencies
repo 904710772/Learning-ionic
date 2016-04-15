@@ -1,0 +1,9 @@
+{
+	"index.html": {
+		"resources": [
+			"ionic/css/ionic.min.css",
+			"ionic/js/jquery.min.js",
+			"ionic/js/ionic.bundle.min.js"
+		]
+	}
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<title>Radio</title>
+		<link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css"/>
+		<script src="ionic/js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ionic/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+	</head>
+	<style type="text/css">
+		.ng-hide {
+		  height: 0;
+		}
+		.radio-content {
+			
+		}
+		.item-radio input:checked+.radio-content .item-content {
+		    background: #26BDAD;
+		}
+		.item-true {
+			background: red;
+		}
+		
+	</style>
+ <script type="text/javascript">
+    angular.module('ionicApp', ['ionic'])
+
+ .controller('MainCtrl', function($scope) {
+//		$scope.aa = [
+//			{text:'aa',value:'aa'},
+//			{text:'bb',value:'bb'},
+//			{text:'cc',value:'cc'},
+//		]
+//		
+//    $scope.serverSideList = [
+//      { text: "Go", value: "go" },
+//      { text: "Python", value: "py" },
+//      { text: "Ruby", value: "rb" },
+//      { text: "Java", value: "jv" }
+//    ];
+//    
+//    $scope.data = {};
+//    
+//    $scope.go = function (val) {
+//    	alert(val.value);
+//    	
+//    }
+//    
+//    $scope.serverSideChange = function(item) {
+//      console.log("Selected Serverside, text:", item.text, "value:", item.value);
+//    };
+      
+      
+    //过滤器
+      $scope.phones = [
+        {text: 'aaa', snippet:'1111'},
+        {text: 'bbb', snippet:'2222'},
+        {text: 'ccc', snippet:'3333'}
+      ]
+      
+      
+      
+    
+    	$scope.btn = function (val) {
+    		console.log(val);
+    	}
+    	
+    	$scope.inp = {};
+
+    });
+    </script>
+  </head>
+  <body ng-controller="MainCtrl">
+        
+    <ion-content>
+<!-- 
+      <div class="list">
+        <div class="item item-divider">
+          Selected Value: {{ data.serverSide }}
+        </div>
+        
+        <ion-radio ng-repeat="item in serverSideList"
+                   ng-value="item.value"
+                   ng-model="data.serverSide"
+                   ng-change="serverSideChange(item)"
+                   name="server-side">
+          {{ item.text }}
+        </ion-radio>
+      </div>
+      
+    <div class="list">
+      	<label class="item item-radio" ng-repeat="item in aa" ng-click="go(item)"
+      		ng-class="item-">
+      		<input type="radio"name="group" ng-value="item.value">
+      		<div class="item-content">
+      			{{item.text}}
+    		</div>
+    		<i class="radio-icon ion-checkmark"></i>
+      	</label>  
+	</div>-->
+	
+	
+	<!--过滤器  ng-model="query" -->
+    Search: <input style="border: 1px solid #11C1F3;"
+    			 type="text" ng-model="query" />
+    			 
+
+    <ul>
+    <!-- 与filter:query 相绑定 -->
+      <li ng-repeat="phone in phones | filter:query">
+        <p>text:{{phone.snippet}}</p>
+      </li>
+    </ul>
+    <p>{{query}}</p>
+    
+     
+    <button ng-click="btn(inp)">Btn</button>
+    <input type="text" ng-model="inp.name"
+     	style="border: 1px solid #11C1F3;"/> 
+ 	<input type="text" ng-model="inp.val"
+     	style="border: 1px solid #11C1F3;"/> 
+    <input type="text" ng-model="inp.nub"
+     	style="border: 1px solid #11C1F3;"/> 
+      
+    </ion-content>
+    
+
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>标准化考试成绩</title>
+		
+    <link href="ionic/css/ionic.min.css" rel="stylesheet">
+
+    
+    <!-- 日期插件 -->
+
+    	
+
+    <script src="ionic/js/ionic.bundle.min.js"></script>
+
+    <style type="text/css">
+		ul {
+			list-style-type: none;
+		}
+		li {
+			display: block;
+		}
+		button {
+			border: none;
+			color: #fff;
+			letter-spacing:0.15px;
+			text-align:center;
+		}
+		p,ul,li {
+			margin: 0;
+		}
+		
+		.assessment-box span {
+			color: #26BDAD;
+			font-size: 0.93rem;
+		}
+			
+    </style>
+  </head>
+  <body ng-controller="myCtrl">
+    <ion-pane>
+    	<ion-content class="bg" style="overflow: initial;">
+				<!--<div style="margin: 1rem 0 2.5rem; padding: 1rem 4%; font-size: 0.93rem; 
+					background: #fff url(img/downArrow.png) 95% 50% / 3% 17% no-repeat;
+					color: #26BDAD;" 
+					ng-click="showPopup()"
+				>
+					考试类型 : 
+					<span></span>
+				</div>-->
+				<div ng-model="myVar" ng-cloak>
+					<ion-radio ng-repeat="item in items" ng-value="{{item.value}}">{{item.text}}</ion-radio>
+					<!--<option value="A">1</option>
+					<option value="B">2</option>
+					<option value="C">3</option>-->
+				</div>
+		
+				<!--<div ng-switch="myVar">
+				  <div ng-switch-when="runoob">
+				     <h1>菜鸟教程</h1>
+				     <p>欢迎访问菜鸟教程</p>
+				  </div>
+
+				  <div ng-switch-default>
+				    <h1>切换</h1>
+				    <p>选择不同选项显示对应的值。</p>
+				  </div>
+				</div>-->
+				<div class="assessment-box" ng-switch="myVar" ng-cloak>
+					<ul class="ib-box" ng-switch-when="aa">
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">时间 :</span>
+						    <input type="text" readonly="readonly" id="beginTime"
+						    	style="background: #fff;" />
+						  </label>
+						</li>
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">分数 :</span>
+						    <input type="text" maxlength="3">
+						  </label>
+						</li>
+					</ul>
+					
+					<ul class="ap-box" ng-switch-when="bb">
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">时间 :</span>
+						    <input type="text" readonly="readonly" id="beginTime"
+						    	style="background: #fff;" />
+						  </label>
+						</li>
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">科目 :</span>
+						    <input type="text" readonly="readonly"
+						    	style="background: #fff;">
+						  </label>
+						</li>
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">分数 :</span>
+						    <input type="text" maxlength="3">
+						  </label>
+						</li>
+					</ul>
+					
+					<ul class="sat-box1" ng-switch-when="cc">
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">时间 :</span>
+						    <input type="text" readonly="readonly" id="beginTime"
+						    	style="background: #fff;" />
+						  </label>
+						</li>
+						<li>
+							<label class="item item-input">
+						    <span class="input-label">分数 :</span>
+						    <input type="text" maxlength="3">
+						  </label>
+						</li>
+					</ul>
+					<div ng-switch-default>
+				     	<h1>切换</h1>
+				     	<p>选择不同选项显示对应的值。</p>
+				 	</div>
+					
+				</div>
+				
+				<div id="datePlugin"></div>
+				<div class="clear"></div>
+			</ion-content>
+    </ion-pane>
+    
+    
+
+   	<!-- 日期插件end -->
+   	
+    <script type="text/javascript">
+    	var app = angular.module('myApp', ['ionic']);
+			app.controller('myCtrl', function($scope, $ionicPopover, $ionicModal, $ionicPopup){
+				$scope.items = [
+					{text:'aaa',value:'aa'},
+					{text:'bbb',value:'bb'},
+					{text:'ccc',value:'cc'},
+				]
+					console.log($scope.items[0].value);
+						
+				});
+    </script>
+  </body>
+</html>

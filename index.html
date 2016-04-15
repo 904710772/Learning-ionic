@@ -8,21 +8,30 @@
 		<script src="ionic/js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ionic/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
 	</head>
+	<style>
+		span {
+			display: block;
+			padding: 20px;
+		}
+		.active {
+			color: #FFC900;
+		}
+	</style>
 	<body ng-app="myApp" ng-controller="myCtrl">
-		<div>
-			
+		<div id="obj">
+			<span ng-repeat="item in span" on-tap="onTap($index)">{{item.txt}}</span>
 		</div>
+		<div></div>
 		<script type="text/javascript">
 			var app = angular.module('myApp',['ionic']);
-			app.controller('myCtrl',['$scope', function($scope) {
+			app.controller('myCtrl', function($scope) {
 				$scope.b = {age:10};
 				$scope.a = {name:'张三'};
 				
 				//继承					//谁要继承谁 ，b继承a		
 				$scope.c = angular.extend($scope.b,$scope.a);
 				console.log($scope.b)
-				
-				
+			
 				//JSON
 				//toJson
 				var json = {'name':'hello','age':'20'};
@@ -59,9 +68,40 @@
 					console.log($scope.info);
 				},10);
 				f();
+			
+				$scope.span = [
+					{
+						txt:'1111'
+					},
+					{
+						txt:'2222'
+					},
+					{
+						txt:'3333'
+					},
+					{
+						txt:'4444'
+					},
+					{
+						txt:'5555'
+					}
+				]
+		
+
 				
-				alert(11);
-			}])
+
+				$scope.onTap = function (item) {
+//					$('#obj span').on("click",function(){
+						console.log(this);
+						this.value = '1111111';
+//						$(this).addClass('active').siblings().removeClass('active');
+//						return;
+//					})
+					
+				}
+				
+				
+			})
 		</script>
 	</body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="ionic/css/ionic.min.css" rel="stylesheet">
+    <script src="ionic/js/ionic.bundle.min.js"></script>
+
+    <style type="text/css">
+
+			
+    </style>
+  </head>
+  <body ng-controller="myCtrl">
+<table >
+    <caption>我的购物车</caption>
+    <tr>
+        <th>序号</th>
+        <th>商品</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>金额</th>
+        <th>操作</th>
+    </tr>
+    <tr ng-repeat="item in items">
+        <td>{{$index + 1}}</td>
+        <td>{{item.name}}</td>
+        <td>1{{item.currency}}2</td>
+        <td>{{item.price | currency}}</td>
+        <td><input ng-model="item.quantity"></td>
+        <td>{{item.quantity * item.price | currency}}</td>
+        <td>
+            <button ng-click="remove($index)">Remove</button>
+        </td>
+    </tr>
+    <button ng-click="remove($index)">1111</button>
+</table>
+ 
+
+	<script>
+			var app = angular.module('myApp', ['ionic']);
+					app.controller('myCtrl', function ($scope) {
+						    function CartController($scope) {
+				        $scope.items = [
+				            {name: "雷柏（Rapoo） V500 机械游戏键盘 机械黄轴", quantity: 1, price: 199.00},
+				            {name: "雷柏（Rapoo） V20 光学游戏鼠标 黑色烈焰版", quantity: 1, price: 139.00},
+				            {name: "AngularJS权威教程", quantity: 2, price: 84.20}
+				        ];
+				 
+				        $scope.remove = function (index) {
+				            $scope.items.splice(index, 1);
+				        }
+				        $scope.remove();
+				    }
+						    CartController($scope);
+					})
+	
+	</script>
+  </body>
+</html>

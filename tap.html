@@ -1,0 +1,68 @@
+<html ng-app='myApp'>
+	<head>
+		<title>CSS实例2</title>
+		<style type="text/css">
+	.error {background-color:red;}
+	.warning {background-color:yellow;}
+</style>
+	</head>
+	<body>
+	<div ng-controller='HeaderController'>
+		<div ng-class='{error:isError,warning:isWarning}'>
+			{{messageText}}
+		</div>
+		<button ng-click='showError()'>Simulate Error</button>
+		<button ng-click='showWarning()'>Simulate Warning</button>
+		
+		
+		<table>
+		<tr ng-repeat="row in collections">
+		<td>
+		{{row.name}}: <input type="radio" value="{{row.value}}" ng-model="$parent.selectValue"/>
+		</td>
+		</tr>
+		</table>
+		
+		
+		<div style="background-color: {{div1Bg}}" ng-click="changeBg()">div1</div>
+		<div style="background-color: {{div2Bg}}">div2</div>
+		
+	</div>
+
+		<script src="ionic/js/ionic.bundle.min.js"></script>
+		<script>
+			var myApp=angular.module('myApp',[])
+				myApp.controller('HeaderController', function($scope) {
+				$scope.isError=false;
+				$scope.isWarning=false;
+				
+				$scope.showError=function() {
+					$scope.messageText='This is an error!';
+					$scope.isError=true;
+					$scope.isWarning=false;
+				};
+				$scope.showWarning=function() {
+					$scope.messageText='Just a warning.Please carry on.';
+					$scope.isWarning=true;$scope.isError=false;
+				};
+				
+				
+				$scope.collections = [
+					{
+						name:'1',id:'11',value:'111'
+					},
+					{
+						name:'2',id:'22',value:'222'
+					}
+				]
+				
+				
+				   		$scope.div1Bg = '#ffffff';
+					    $scope.div2Bg = '#000';
+					    $scope.changeBg = function () {
+					      $scope.div2Bg = $scope.div1Bg;
+						};
+			});
+		</script>
+	</body>
+</html>
